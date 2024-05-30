@@ -1,4 +1,4 @@
-# Classification de Lego
+# Semiologie
 
 ## Description
 Bienvenue sur le dépôt GitHub de notre projet de groupe réalisé pendant notre formation en Data Analyse avec la World code School. Ce projet a été mené dans le cadre de notre cursus, et il porte sur ...???....
