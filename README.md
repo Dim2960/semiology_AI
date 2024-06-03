@@ -58,4 +58,6 @@ Bienvenue sur le dépôt GitHub de notre projet de groupe réalisé pendant notr
 | | ![matplotlib](img_readme/python-color.svg) matplotlib | ![vscode](img_readme/visualstudiocode-color.svg) VS code |
 | | ![seaborn](img_readme/python-color.svg) seaborn | ![colab](img_readme/googlecolab-color.svg) google colab |
 | | ![scikit-learn](img_readme/scikitlearn-color.svg) scitkit-learn | ![discord](img_readme/discord-color.svg) Discord |
+| | ![statistiks](img_readme/python-color.svg) statistiks | ![Git](img_readme/scikitlearn-color.svg) Git |
+| | ![skimpy](img_readme/python-color.svg) skimpy | |
 
