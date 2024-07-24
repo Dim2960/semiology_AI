@@ -9,15 +9,13 @@ Sélectionner une maladie
 
 
 <div class="container">
-
     <div class="row">
         <div id="sidebar" class="col-5 bg h-100">
-
             <div class="container icone-groupe">
                 <div class="row ">
                     <div class="col-12">
                         <figure id="mrc" data-value="4">
-                            <img  src="{{ url_for('static', filename='img/icone_mrc.png') }}" alt="logo"
+                            <img src="{{ url_for('static', filename='img/icone_mrc.png') }}" alt="logo"
                                 class="rounded mx-auto d-block icone">
                             <figcaption>
                                 Maladie chronique du rein
@@ -28,7 +26,7 @@ Sélectionner une maladie
                 <div class="row icone-row">
                     <div class="col-6">
                         <figure id="cancer" data-value="2">
-                            <img  src="{{ url_for('static', filename='img/icone_seins.png') }}" alt="logo"
+                            <img src="{{ url_for('static', filename='img/icone_seins.png') }}" alt="logo"
                                 class="rounded float-start icone">
                             <figcaption>
                                 Cancer de seins
@@ -36,19 +34,18 @@ Sélectionner une maladie
                     </div>
                     <div class="col-6">
                         <figure id="diabete" data-value="1">
-                            <img  src="{{ url_for('static', filename='img/icone_diabete.png') }}" alt="logo"
+                            <img src="{{ url_for('static', filename='img/icone_diabete.png') }}" alt="logo"
                                 class="rounded float-start icone">
                             <figcaption>
                                 Diabète
                             </figcaption>
-
                         </figure>
                     </div>
                 </div>
                 <div class="row icone-row">
                     <div class="col-6">
                         <figure id="liver" data-value="5">
-                            <img  src="{{ url_for('static', filename='img/icone_foie.png') }}" alt="logo"
+                            <img src="{{ url_for('static', filename='img/icone_foie.png') }}" alt="logo"
                                 class=" rounded float-start icone">
                             <figcaption>
                                 Foie
@@ -57,7 +54,7 @@ Sélectionner une maladie
                     </div>
                     <div class="col-6">
                         <figure id="heart" data-value="3">
-                            <img  src="{{ url_for('static', filename='img/icone_coeur.png') }}" alt="logo"
+                            <img src="{{ url_for('static', filename='img/icone_coeur.png') }}" alt="logo"
                                 class=" rounded float-start icone">
                             <figcaption>
                                 Coeur
@@ -71,52 +68,46 @@ Sélectionner une maladie
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{ url_for('static', filename='img/logo_top.png') }}" alt="logo" class="img-fluid">
-                        <h1 class="pt-5 pb-2">Sélectionner une maladie</h1>
+                        <img src="{{ url_for('static', filename='img/logo_top.png') }}" alt="logo" class="img-fluid logo">
+                        <h1 id="textTitle" class="pt-5 pb-2">Sélectionner une maladie</h1>
                     </div>
-
+                    <div class="col-12 recap">
+                        <p id="diseaseText" class="pt-5 pb-2 recap-style"></p>
+                        <p class="pt-5 pb-2 recap-style"><span id="fileText"></span>
+                            <i id="deleteButton" class="bi bi-trash-fill red" style="visibility: hidden;"></i></p>
+                    </div>
                 </div>
-                <form method="POST" action="/">
-                    {{ form.hidden_tag() }}
-                    
-
-                    <div class="frame">
-                        <div class="center">
-                            <div class="title">
-                                <h3>Drop file to upload</h3>
+                <div class="row">
+                    <div class="col-12 relative ">
+                        <form method="POST" enctype="multipart/form-data" action="/">
+                            {{ form.hidden_tag() }}
+                            <div class="frame">
+                                <div class="center">
+                                    <div class="title">
+                                        <h3>Drop file to upload</h3>
+                                    </div>
+                                    <div class="dropzone">
+                                        <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                                        {{form.csv_file(class_="upload-input")}}
+                                    </div>
+                                    {{form.submit(class_="btn ")}}
+                                </div>
                             </div>
-                    
-                            <div class="dropzone">
-                                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
-                                {{form.csv_file(class_="upload-input")}}
+                        </form>
+                        <div class="frame2">
+                            <div class="center2">
+                                <div class="title2">
+                                    <h3 class="result">Résultats</h3>
+                                </div>
+                                <div class="msg">
+                                    <p class="pt-5">{{ message }}</p>
+                                </div>
                             </div>
-                            {{form.submit(class_="btn ")}}
-                            
-                    
                         </div>
                     </div>
-                    <div class="frame2">
-                        <div class="center2">
-                            <div class="title2">
-                                <h3 class="result">Résultats</h3>
-                            </div>
-                    
-                            <div class="msg">
-                                <p class="pt-5">{{ message }}</p>
-                                
-                            </div>
-                           
-                            
-                    
-                        </div>
-                    </div>
-
-                </form>
-             
-
+                </div>
             </div>
         </div>
-
     </div>
 </div>
 {% endblock %}

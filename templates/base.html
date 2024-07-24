@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>{{ the_title }}</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<!-- note the special href for files in the Flask "static" folder -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
 </head>
+
 <body>
 
-<div id="container">
+	<div id="container">
 
-  <!-- Jinja directives: page contents will go between them -->
-  {% block content %}
-  {% endblock %}
+		<!-- Jinja directives: page contents will go between them -->
+		{% block content %}
+		{% endblock %}
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='js/main.js') }}">
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link rel="script" href="{{ url_for('static', filename='js/main.js') }}">
+	<script>
+		const mrc = document.getElementById("mrc");
+		const heart = document.getElementById("heart");
+		const diabete = document.getElementById("diabete");
+		const cancer = document.getElementById("cancer");
+		const liver = document.getElementById("liver");
+		const diseaseId = document.getElementById("diseaseId");
+		const file = document.getElementById("fileId");
+		const deleteBtn = document.getElementById("deleteButton");
+
+		mrc.addEventListener("click", updateValue);
+		heart.addEventListener("click", updateValue);
+		diabete.addEventListener("click", updateValue);
+		cancer.addEventListener("click", updateValue);
+		liver.addEventListener("click", updateValue);
+		file.addEventListener("change", fileUpload);
+
+		function updateValue() {
+			let value = this.dataset.value;
+			let text = this.lastElementChild.innerHTML;
+			let titletext = document.getElementById("textTitle");
+			let diseaseText = document.getElementById("diseaseText");
+			diseaseText.innerHTML = text;
+			titletext.innerHTML = "Maladie selectionné:";
+			diseaseId.setAttribute("value", value);
+			console.log("updateValue");
+			console.log(value);
+		}
+
+		function fileUpload() {
+			let value = this.files[0].name;
+			let text = document.getElementById("fileText");
+			text.innerHTML = value;
+			deleteBtn.style.visibility = "visible";
+			console.log("fileUpload");
+			console.log(value);
+		}
+
+		deleteBtn.addEventListener('click', function() {
+			file.value = '';
+  			document.getElementById('fileText').textContent = '';
+			deleteBtn.style.visibility = "hidden";
+		});
+
+	</script>
 </body>
+
 </html>

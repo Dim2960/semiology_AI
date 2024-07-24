@@ -1,5 +1,10 @@
 body {
     font-family: Abadi;
+    margin: 10px 0 100px 0;
+}
+
+.logo {
+    height: 150px;
 }
 
 h1 {
@@ -62,17 +67,33 @@ figure:hover {
     z-index: -1;
 }
 
-/* upload frame    */
+.recap {
+    text-align: center;
+}
 
+.recap-style {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #09A89D;
+}
+
+.red {
+    color: red;
+}
+/* upload frame    */
+.relative {
+    position: relative;
+    cursor: pointer;
+}
 
 .frame {
     position: absolute;
-    top: 65%;
-    left: 50%;
+    /*top: 85%;*/
+    left: -5%;
     width: 400px;
     height: 400px;
-    margin-top: -200px;
-    margin-left: -100px;
+    /*margin-top: -200px;
+    margin-left: -100px;*/
     border: solid 7px #09A89D;
     border-radius: 30px;
     box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
@@ -154,12 +175,12 @@ h3 {
 
 .frame2 {
     position: absolute;
-    top: 65%;
-    left: 75%;
+    /*top: 85%;*/
+    left: 60%;
     width: 400px;
     height: 400px;
-    margin-top: -200px;
-    margin-left: -100px;
+    /*margin-top: -200px;
+    margin-left: -100px;*/
     border: solid 7px #09A89D;
     border-radius: 30px;
     box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);

@@ -1,9 +1,11 @@
 import secrets
+import pandas as pd
 from flask import Flask, render_template, redirect, url_for, request
 from flask_wtf import FlaskForm, CSRFProtect
-from wtforms import SubmitField, HiddenField, FileField,IntegerField
+from flask_wtf.file import FileRequired, FileAllowed
+from wtforms import SubmitField, HiddenField, FileField
 from wtforms.validators import DataRequired, Length
-
+from werkzeug.utils import secure_filename
 
 
 # Create a Flask app
@@ -16,18 +18,18 @@ app.secret_key = foo
 csrf = CSRFProtect(app)
 
 # Set the dictionary of diseases
-diseaseDict = {1  :  'Diabetes',
-               2  : 'Cancer',
-               3  :  'Heart Disease',
-               4  : 'MRC',
-               5 : 'Liver'
+diseaseDict = {'1'  :  'Diabetes',
+               '2'  : 'Cancer',
+               '3'  :  'Heart Disease',
+               '4'  : 'MRC',
+               '5' : 'Liver'
                }
 
 
 
 class UploadForm(FlaskForm):
     disease = HiddenField('Disease', id='diseaseId' ,validators=[DataRequired()])
-    csv_file = FileField('CSV File', validators=[DataRequired()])
+    csv_file = FileField('CSV File', id='fileId', validators=[FileRequired(), FileAllowed(['csv'], 'CSV only!')])
     submit = SubmitField('Upload')
 
 
@@ -38,9 +40,13 @@ def index():
     if form.validate_on_submit():
         disease = form.disease.data
         csv_file = form.csv_file.data
-        message = f'You have selected {diseaseDict[disease]} and uploaded {csv_file.filename}'
+        filename =  secure_filename(csv_file.filename)
+        df = pd.read_csv(csv_file)
+        print((df.head()))
+        #{"id_maladie": id_maladie, "prediction": maladie_pred}
+        message = f'You have selected {diseaseDict[disease]} and uploaded {filename}'
     else:
-        message = 'Wasted'
+        message = "Vous n'avez pas encore choisie une maladie"
     return render_template('form.html', form=form, message=message)
 
 
