@@ -16,8 +16,8 @@ Sélectionner une maladie
             <div class="container icone-groupe">
                 <div class="row ">
                     <div class="col-12">
-                        <figure>
-                            <img id="mrc" src="{{ url_for('static', filename='img/icone_mrc.png') }}" alt="logo"
+                        <figure id="mrc" data-value="4">
+                            <img  src="{{ url_for('static', filename='img/icone_mrc.png') }}" alt="logo"
                                 class="rounded mx-auto d-block icone">
                             <figcaption>
                                 Maladie chronique du rein
@@ -27,16 +27,16 @@ Sélectionner une maladie
                 </div>
                 <div class="row icone-row">
                     <div class="col-6">
-                        <figure>
-                            <img id="cancer" src="{{ url_for('static', filename='img/icone_seins.png') }}" alt="logo"
+                        <figure id="cancer" data-value="2">
+                            <img  src="{{ url_for('static', filename='img/icone_seins.png') }}" alt="logo"
                                 class="rounded float-start icone">
                             <figcaption>
                                 Cancer de seins
                             </figcaption>
                     </div>
                     <div class="col-6">
-                        <figure>
-                            <img id="diabete" src="{{ url_for('static', filename='img/icone_diabete.png') }}" alt="logo"
+                        <figure id="diabete" data-value="1">
+                            <img  src="{{ url_for('static', filename='img/icone_diabete.png') }}" alt="logo"
                                 class="rounded float-start icone">
                             <figcaption>
                                 Diabète
@@ -47,8 +47,8 @@ Sélectionner une maladie
                 </div>
                 <div class="row icone-row">
                     <div class="col-6">
-                        <figure>
-                            <img id="liver" src="{{ url_for('static', filename='img/icone_foie.png') }}" alt="logo"
+                        <figure id="liver" data-value="5">
+                            <img  src="{{ url_for('static', filename='img/icone_foie.png') }}" alt="logo"
                                 class=" rounded float-start icone">
                             <figcaption>
                                 Foie
@@ -56,8 +56,8 @@ Sélectionner une maladie
                         </figure>
                     </div>
                     <div class="col-6">
-                        <figure>
-                            <img id="heart" src="{{ url_for('static', filename='img/icone_coeur.png') }}" alt="logo"
+                        <figure id="heart" data-value="3">
+                            <img  src="{{ url_for('static', filename='img/icone_coeur.png') }}" alt="logo"
                                 class=" rounded float-start icone">
                             <figcaption>
                                 Coeur
