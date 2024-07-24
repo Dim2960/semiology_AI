@@ -37,7 +37,17 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             pass
         
         case 4:
-            pass
+            # definition de la variable target
+            target = 'classification_str'
+
+            #chargement du model
+            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\random_forest_model_mrc.pkl')
+
+            # preparation des données
+            X = df.drop(target, axis=1)
+
+            #prediction
+            maladie_pred = False if str(model.predict(X)[0]) == 'notckd' else True
 
         case 5:
             pass
@@ -48,7 +58,7 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
     try:
 
 
-        return {"maladie": id_maladie, "prediction": maladie_pred}
+        return {"id_maladie": id_maladie, "prediction": maladie_pred}
     
     except:
         print('erreur de chargement maladie')
@@ -56,12 +66,12 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
 
 
 
-df_cancer = pd.read_csv(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\data_clean_cancer_test.csv')
+df_cancer = pd.read_csv(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\data_mrc_test.csv')
 
 df_cancer = df_cancer.head(1)
 
 print(df_cancer)
 
-pred = prediction(2, df_cancer)
+pred = prediction(4, df_cancer)
 
 print(pred)
