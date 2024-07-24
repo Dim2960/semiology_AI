@@ -7,14 +7,16 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
     '''
     Prediction des maladie en fonction des différents model cahr
 
-    diseaseDict = {1  :  'Diabetes',
+    diseaseDict = { 1  : 'Diabetes',
                     2  : 'Cancer',
-                    3  :  'Heart Disease',
+                    3  : 'Heart Disease',
                     4  : 'MRC',
-                    5 : 'Liver'
+                    5  : 'Liver'
                 }
 
     '''
+    # link_diabete = 
+    # link'
 
     match id_maladie:
         case 1:
@@ -22,13 +24,12 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'Outcome'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\xtra_tree_class_diabete.pkl')
+            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\MPLclassifier_diabete.plk')
 
             # preparation des données
-            X = df.drop(target, axis=1)
-
+            X = df.drop(columns=target, axis=1)
             #prediction
-            maladie_pred = False if str(model.predict(X)[0]) == 0 else True
+            maladie_pred = False if model.predict(X)[0] == 0 else True
 
         case 2:
             # definition de la variable target
@@ -44,8 +45,18 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             maladie_pred = False if str(model.predict(X)[0]) == 'B' else True
             
         case 3:
-            pass
-        
+            # definition de la variable target
+            target = 'target'
+
+            #chargement du model
+            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\Cardiaque_KNN.pkl')
+
+            # preparation des données
+            X = df.drop(target, axis=1)
+
+            #prediction
+            maladie_pred = False if model.predict(X)[0] == 0 else True
+
         case 4:
             # definition de la variable target
             target = 'classification_str'
@@ -60,7 +71,17 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             maladie_pred = False if str(model.predict(X)[0]) == 'notckd' else True
 
         case 5:
-            pass
+            # definition de la variable target
+            target = 'Dataset'
+
+            #chargement du model
+            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\best_model_foie.pkl')
+
+            # preparation des données
+            X = df.drop(target, axis=1)
+
+            #prediction
+            maladie_pred = False if model.predict(X)[0] == 0 else True
         
         case _:
             pass
@@ -74,14 +95,3 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
         print('erreur de chargement maladie')
 
 
-
-
-df_cancer = pd.read_csv(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\data_diabete_test.csv')
-
-df_cancer = df_cancer.head(1)
-
-print(df_cancer)
-
-pred = prediction(1, df_cancer)
-
-print(pred)
