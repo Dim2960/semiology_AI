@@ -26,7 +26,7 @@ diseaseDict = {1  :  'Diabetes',
 
 
 class UploadForm(FlaskForm):
-    disease = HiddenField('Disease', validators=[DataRequired()])
+    disease = HiddenField('Disease', id='diseaseId' ,validators=[DataRequired()])
     csv_file = FileField('CSV File', validators=[DataRequired()])
     submit = SubmitField('Upload')
 
