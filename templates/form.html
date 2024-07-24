@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Sélectionner une maladie
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+        <div id="sidebar" class="col-5 bg h-100">
+
+            <div class="container icone-groupe">
+                <div class="row ">
+                    <div class="col-12">
+                        <figure>
+                            <img id="mrc" src="{{ url_for('static', filename='img/icone_mrc.png') }}" alt="logo"
+                                class="rounded mx-auto d-block icone">
+                            <figcaption>
+                                Maladie chronique du rein
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="row icone-row">
+                    <div class="col-6">
+                        <figure>
+                            <img id="cancer" src="{{ url_for('static', filename='img/icone_seins.png') }}" alt="logo"
+                                class="rounded float-start icone">
+                            <figcaption>
+                                Cancer de seins
+                            </figcaption>
+                    </div>
+                    <div class="col-6">
+                        <figure>
+                            <img id="diabete" src="{{ url_for('static', filename='img/icone_diabete.png') }}" alt="logo"
+                                class="rounded float-start icone">
+                            <figcaption>
+                                Diabète
+                            </figcaption>
+
+                        </figure>
+                    </div>
+                </div>
+                <div class="row icone-row">
+                    <div class="col-6">
+                        <figure>
+                            <img id="liver" src="{{ url_for('static', filename='img/icone_foie.png') }}" alt="logo"
+                                class=" rounded float-start icone">
+                            <figcaption>
+                                Foie
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-6">
+                        <figure>
+                            <img id="heart" src="{{ url_for('static', filename='img/icone_coeur.png') }}" alt="logo"
+                                class=" rounded float-start icone">
+                            <figcaption>
+                                Coeur
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-7 h-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="{{ url_for('static', filename='img/logo_top.png') }}" alt="logo" class="img-fluid">
+                        <h1 class="pt-5 pb-2">Sélectionner une maladie</h1>
+                    </div>
+
+                </div>
+                <form method="POST" action="/">
+                    {{ form.hidden_tag() }}
+                    
+
+                    <div class="frame">
+                        <div class="center">
+                            <div class="title">
+                                <h3>Drop file to upload</h3>
+                            </div>
+                    
+                            <div class="dropzone">
+                                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                                {{form.csv_file(class_="upload-input")}}
+                            </div>
+                            {{form.submit(class_="btn ")}}
+                            
+                    
+                        </div>
+                    </div>
+                    <div class="frame2">
+                        <div class="center2">
+                            <div class="title2">
+                                <h3 class="result">Résultats</h3>
+                            </div>
+                    
+                            <div class="msg">
+                                <p class="pt-5">{{ message }}</p>
+                                
+                            </div>
+                           
+                            
+                    
+                        </div>
+                    </div>
+
+                </form>
+             
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
