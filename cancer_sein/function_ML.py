@@ -18,7 +18,17 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
 
     match id_maladie:
         case 1:
-            pass
+            # definition de la variable target
+            target = 'Outcome'
+
+            #chargement du model
+            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\xtra_tree_class_diabete.pkl')
+
+            # preparation des données
+            X = df.drop(target, axis=1)
+
+            #prediction
+            maladie_pred = False if str(model.predict(X)[0]) == 0 else True
 
         case 2:
             # definition de la variable target
@@ -66,12 +76,12 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
 
 
 
-df_cancer = pd.read_csv(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\data_mrc_test.csv')
+df_cancer = pd.read_csv(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\data_diabete_test.csv')
 
 df_cancer = df_cancer.head(1)
 
 print(df_cancer)
 
-pred = prediction(4, df_cancer)
+pred = prediction(1, df_cancer)
 
 print(pred)
