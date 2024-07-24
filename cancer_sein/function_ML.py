@@ -15,8 +15,13 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
                 }
 
     '''
-    # link_diabete = 
-    # link'
+    link_diabete = r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\MPLclassifier_diabete.plk'
+    link_cancer = r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\best_model_breast_cancer.pkl'
+    link_heart = r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\Cardiaque_KNN.pkl'
+    link_mrc = r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\random_forest_model_mrc.pkl'
+    link_liver = r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\best_model_foie.pkl'
+
+
 
     match id_maladie:
         case 1:
@@ -24,7 +29,7 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'Outcome'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\MPLclassifier_diabete.plk')
+            model = joblib.load(link_diabete)
 
             # preparation des données
             X = df.drop(columns=target, axis=1)
@@ -36,7 +41,7 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'diagnosis'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\best_model_breast_cancer.pkl')
+            model = joblib.load(link_cancer)
 
             # preparation des données
             X = df.drop(target, axis=1)
@@ -49,7 +54,7 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'target'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\Cardiaque_KNN.pkl')
+            model = joblib.load(link_heart)
 
             # preparation des données
             X = df.drop(target, axis=1)
@@ -62,10 +67,11 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'classification_str'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\random_forest_model_mrc.pkl')
+            model = joblib.load(link_mrc)
 
             # preparation des données
             X = df.drop(target, axis=1)
+            
 
             #prediction
             maladie_pred = False if str(model.predict(X)[0]) == 'notckd' else True
@@ -75,7 +81,7 @@ def prediction(id_maladie: int, df:pd.DataFrame)->dict[str:int, str:bool]:
             target = 'Dataset'
 
             #chargement du model
-            model = joblib.load(r'C:\Users\dimle\Documents\clone_repo\semiology_AI\cancer_sein\best_model_foie.pkl')
+            model = joblib.load(link_liver)
 
             # preparation des données
             X = df.drop(target, axis=1)
