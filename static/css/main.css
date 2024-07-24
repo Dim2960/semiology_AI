@@ -1,0 +1,193 @@
+body {
+    font-family: Abadi;
+}
+
+h1 {
+    text-align: center;
+}
+
+.bg {
+    background-image: url("../img/left_menu.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: center;
+    z-index: -1;*/
+}
+
+.icone-groupe {
+    width: 250px;
+    height: auto;
+    margin: 285px 0 200px 100px;
+    display: block;
+}
+
+.icone-row {
+    /*margin:20px 5px 0 0;*/
+}
+
+figcaption {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: #CAEEFB;
+}
+
+.icone {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+figure {
+    transition: transform .1s;
+    cursor: pointer; 
+}
+
+figure:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+    
+}
+
+
+.bg-upload {
+    background-image: url("../img/upload.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: center;*/
+    z-index: -1;
+}
+
+/* upload frame    */
+
+
+.frame {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -100px;
+    border: solid 7px #09A89D;
+    border-radius: 30px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(to top right, rgb(15, 72, 97) 0%, rgb(131, 203, 235) 100%);
+    color: #333;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 260px;
+    border-radius: 3px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+}
+
+.dropzone {
+    width: 100px;
+    height: 80px;
+    border: 1px dashed #999;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.upload-icon {
+    margin: 25px 2px 2px 2px;
+}
+
+.upload-input {
+    position: relative;
+    top: -62px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.btn {
+    display: block;
+    width: 140px;
+    height: 40px;
+    background: #2277B7;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    box-shadow: 0 3px 0 0 #0F4861;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #90BF46;
+    box-shadow: 0 3px 0 0 #09A89D;
+}
+
+
+/*  answer frame*/
+
+.frame2 {
+    position: absolute;
+    top: 65%;
+    left: 75%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -100px;
+    border: solid 7px #09A89D;
+    border-radius: 30px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(to top right, rgb(15, 72, 97) 0%, rgb(131, 203, 235) 100%);
+    color: #333;
+}
+
+.center2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 260px;
+    border-radius: 3px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.result {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: -30px;
+
+
+}
