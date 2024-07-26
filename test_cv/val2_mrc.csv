@@ -1,0 +1,2 @@
+age,blood_pressure,specific_gravity,albumin,sugar,red_blood_cells,pus_cell,pus_cell_clumps,bacteria,blood_glucose_random,blood_urea,serum_creatinine,sodium,potassium,haemoglobin,packed_cell_volume,white_blood_cell_count,red_blood_cell_count,hypertension,diabetes_mellitus,coronary_artery_disease,appetite,peda_edema,anemia
+42,58.0,1.01,0.0,0.0,normal,normal,notpresent,notpresent,115.0,27.0,0.7,144.0,4.2,14.0,23.0,8200.0,5.8,no,no,no,good,no,no

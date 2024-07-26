@@ -80,6 +80,12 @@ figure:hover {
 .red {
     color: red;
 }
+
+.answer {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 20px;}
+
 /* upload frame    */
 .relative {
     position: relative;
@@ -208,7 +214,7 @@ h3 {
 .result {
     font-size: 1.4rem;
     font-weight: 600;
-    margin-top: -30px;
+    /*margin-top: -30px;*/
 
 
 }

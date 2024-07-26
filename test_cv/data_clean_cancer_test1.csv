@@ -1,0 +1,2 @@
+,texture_mean,area_mean,smoothness_mean,concavity_mean,symmetry_mean,area_se,concavity_se,concave points_se,fractal_dimension_se,texture_worst,area_worst,smoothness_worst,concavity_worst,concave points_worst,symmetry_worst,fractal_dimension_worst
+0,23.94,668.3,0.1172,0.1267,0.1953,35.24,0.02315,0.01184,0.003224,33.39,925.1,0.1648,0.3024,0.1614,0.3321,0.08911
